@@ -1,0 +1,20 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- A simple berry: round body with a small leaf, drawn in the
+         launcher safe zone (center 72dp). -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,38 m-20,0 a20,20 0 1,0 40,0 a20,20 0 1,0 -40,0" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,38 C58,26 68,20 78,22 C74,32 62,38 54,38 Z" />
+    <path
+        android:fillColor="#6B4E9B"
+        android:pathData="M46,52 m-3,0 a3,3 0 1,0 6,0 a3,3 0 1,0 -6,0" />
+    <path
+        android:fillColor="#6B4E9B"
+        android:pathData="M60,52 m-3,0 a3,3 0 1,0 6,0 a3,3 0 1,0 -6,0" />
+</vector>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Berry is local-first: no accounts, no analytics, no server.
+  v3 adds exactly two network permissions, used for ONE purpose: the
+  one-time download of the on-device AI model file from Hugging Face
+  (see ai/ModelManager.kt). No log, prompt, or answer ever leaves the
+  device; inference itself is fully offline.
+  The other declared permission is POST_NOTIFICATIONS (Phase 3 predictive
+  reminders, approved 2026-10-17), requested once at runtime on Android 13+.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <!-- v3 only: one-time AI model download (Wi-Fi by default). -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:name=".BerryApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Berry">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.Berry">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <receiver
+            android:name=".notify.NotificationActionReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.alexanderlingle.berry.ACTION_START_NAP" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>
